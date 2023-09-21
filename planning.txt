@@ -1,0 +1,36 @@
+Data needs to be sorted:
+- set of integers
+- 2 stacks(lists)
+- set of instructions to manipulates stacks
+
+Write 2 programs:
+- "checker": takes integers & instructions. Reads and executes instructions and then checks if integers are sorted.
+    If sorted output "OK" otherwise output "KO"
+- "push_swap": takes integers. Calculates lowest number of actions to sort given integers
+
+Sorting rules:
+- 2 stacks "a" & "b"
+- "a" contains unique random number of integers(negative & positive)
+- goal is to sort "a" in ascending order
+
+Operations:
+- sa: swap first 2 elements in "a". Do nothing if "a" empty or only one element
+- sb: same | but for "b"
+- ss: does both "sa" & "sb"
+- pa: take first element in "b" and push it to the top of "a". Do nothing if "b" empty
+- pb: same | but for "a"
+- ra: shift all elements in "a" by 1. First element becomes the last
+- rb: same | but for "b"
+- rr: do both "ra" & "rb"
+- rra: opposite of "ra"
+- rrb: opposite of "rb"
+- rrr: does both "rra" & "rrb"
+
+Start with "checker" then move on to "push_swap"
+
+Tech Stack:
+- Python for logic/back-end
+- Flask for front-end
+- MySQL relational databases to store user info, history of sorts from algorithm(initial stack, output stack, if sorted, version of sorter name),
+    statistics like number of steps number of each operation to check efficiency and what not
+- API that I will create to generate random list of numbers
