@@ -10,4 +10,7 @@ def swap_both_first_two_elements(lst_a, lst_b):
 
 
 def push_to_a(lst_a, lst_b):
-    return [], []
+    if lst_b:
+        lst_a = [lst_b.pop(0)] + lst_a
+
+    return lst_a, lst_b
