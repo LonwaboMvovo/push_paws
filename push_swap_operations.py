@@ -1,5 +1,5 @@
-def swap_a(list_a):
-    if len(list_a) > 1:
-        list_a[0], list_a[1] = list_a[1], list_a[0]
+def swap_first_two_elements(lst):
+    if len(lst) > 1:
+        lst[0], lst[1] = lst[1], lst[0]
 
-    return list_a
+    return lst
