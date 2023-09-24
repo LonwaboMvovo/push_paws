@@ -51,17 +51,18 @@ class TestPushSwapOperations(unittest.TestCase):
     def test_push_to_a_empty_b(self):
         list_a = [1, 2, 3, 4, 5]
         list_b = []
-        result_a, result_b = push_swap_operations.push_to_a(list_a.copy(), list_b.copy())
-        self.assertEqual(list_a, result_a, "push_to_a - should do nothing if list_b has no elements")
-        self.assertEqual(list_b, result_b, "push_to_a - should do nothing if list_b has no elements")
+        result_a, result_b = push_swap_operations.push_to_another_list(list_a.copy(), list_b.copy())
+        self.assertEqual(list_a, result_a, "push_to_another_list - should do nothing if list_b has no elements")
+        self.assertEqual(list_b, result_b, "push_to_another_list - should do nothing if list_b has no elements")
 
 
     def test_push_to_a_valid_b(self):
         list_a = [3, 4, 5]
         list_b = [2, 1]
-        result_a, result_b = push_swap_operations.push_to_a(list_a.copy(), list_b.copy())
-        self.assertEqual([2, 3, 4, 5], result_a, "push_to_a - the first element of list_a should now be the former first element of list_b")
-        self.assertEqual([1], result_b, "push_to_a - the first element of list_b should now be the former second element of list_b")
+        result_a, result_b = push_swap_operations.push_to_another_list(list_a.copy(), list_b.copy())
+        self.assertEqual([2, 3, 4, 5], result_a, "push_to_another_list - the first element of list_a should now be the former first element of list_b")
+        self.assertEqual([1], result_b, "push_to_another_list - the first element of list_b should now be the former second element of list_b")
+
 
 if __name__ == "__main__":
     unittest.main()
