@@ -14,8 +14,8 @@ Sorting rules:
 - goal is to sort "a" in ascending order
 
 Operations:
-- sa: swap first 2 elements in "a". Do nothing if "a" empty or only one element
-- sb: same | but for "b"
+- sa: swap first 2 elements in "a". Do nothing if "a" empty or only one element | 
+- sb: same | but for "b" | DONE
 - ss: does both "sa" & "sb"
 - pa: take first element in "b" and push it to the top of "a". Do nothing if "b" empty
 - pb: same | but for "a"
