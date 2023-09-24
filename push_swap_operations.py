@@ -6,4 +6,4 @@ def swap_first_two_elements(lst):
 
 
 def swap_both_first_two_elements(lst_a, lst_b):
-    return lst_a, lst_b
+    return swap_first_two_elements(lst_a), swap_first_two_elements(lst_b)
