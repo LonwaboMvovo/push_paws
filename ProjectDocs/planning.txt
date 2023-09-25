@@ -22,8 +22,8 @@ Operations:
 - ra: shift all elements in "a" by 1. First element becomes the last | DONE
 - rb: same | but for "b" | DONE
 - rr: do both "ra" & "rb" | DONE
-- rra: opposite of "ra"
-- rrb: opposite of "rb"
+- rra: opposite of "ra" | DONE
+- rrb: opposite of "rb" | DONE
 - rrr: does both "rra" & "rrb"
 
 Start with "checker" then move on to "push_swap"
