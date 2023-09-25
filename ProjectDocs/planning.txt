@@ -19,9 +19,9 @@ Operations:
 - ss: does both "sa" & "sb" | DONE
 - pa: take first element in "b" and push it to the top of "a". Do nothing if "b" empty | DONE
 - pb: same | but for "a" | DONE
-- ra: shift all elements in "a" by 1. First element becomes the last
-- rb: same | but for "b"
-- rr: do both "ra" & "rb"
+- ra: shift all elements in "a" by 1. First element becomes the last | DONE
+- rb: same | but for "b" | DONE
+- rr: do both "ra" & "rb" | DONE
 - rra: opposite of "ra"
 - rrb: opposite of "rb"
 - rrr: does both "rra" & "rrb"

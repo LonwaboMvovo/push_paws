@@ -22,3 +22,7 @@ def push_to_another_list(lst_a: List[int], lst_b: List[int]) -> Tuple[List[int],
 
 def rotate_list(lst: List[int]) -> List[int]:
     return lst[1:] + lst[:1]
+
+
+def rotate_both_lists(lst_a: List[int], lst_b: List[int]) -> Tuple[List[int], List[int]]:
+    return rotate_list(lst_a), rotate_list(lst_b)
