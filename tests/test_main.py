@@ -64,5 +64,11 @@ class TestPushSwapOperations(unittest.TestCase):
         self.assertEqual([1], result_b, "push_to_another_list - the first element of list_b should now be the former second element of list_b")
 
 
+
+    def test_rotate_list(self):
+        list_a = [1, 2, 3, 4, 5]
+        result = push_swap_operations.rotate_list(list_a)
+        self.assertEqual([2, 3, 4, 5, 1], result, "rotate_list - elements not shifted correctly. The first should become the last")
+
 if __name__ == "__main__":
     unittest.main()
