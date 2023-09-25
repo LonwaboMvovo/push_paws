@@ -24,7 +24,7 @@ Operations:
 - rr: do both "ra" & "rb" | DONE
 - rra: opposite of "ra" | DONE
 - rrb: opposite of "rb" | DONE
-- rrr: does both "rra" & "rrb"
+- rrr: does both "rra" & "rrb" | DONE
 
 Start with "checker" then move on to "push_swap"
 
@@ -34,5 +34,3 @@ Tech Stack:
 - MySQL relational databases to store user info, history of sorts from algorithm(initial stack, output stack, if sorted, version of sorter name),
     statistics like number of steps number of each operation to check efficiency and what not
 - API that I will create to generate random list of numbers
-
-TESTING GITHUB CREDENTIALS SETUP

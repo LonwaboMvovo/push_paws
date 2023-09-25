@@ -30,3 +30,7 @@ def rotate_both_lists(lst_a: List[int], lst_b: List[int]) -> Tuple[List[int], Li
 
 def reverse_rotate_list(lst: List[int]) -> List[int]:
     return lst[-1:] + lst[:-1]
+
+
+def reverse_rotate_both_lists(lst_a: List[int], lst_b: List[int]) -> Tuple[List[int], List[int]]:
+    return reverse_rotate_list(lst_a), reverse_rotate_list(lst_b)
