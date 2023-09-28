@@ -82,5 +82,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# TODO - error handling for 'get_user_ints' & 'get_user_instructions'
 # TODO - docstrings

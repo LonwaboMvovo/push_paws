@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import patch
-from io import StringIO
 import operations
 import checker
 
@@ -126,13 +125,14 @@ class TestChecker(unittest.TestCase):
         self.assertEqual("ERROR: invalid instructions", result, "get_user_instructions - should return an error message for invalid user instructions")
 
 
-    # execute_instructions - valid execution for each instruction: sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
-    # execute_instructions - valid execution for multiple instructions    
+    def test_execute_instructions_sa(self):
+        lst_a = [1, 2, 3, 4, 5]
+        lst_b = [6, 7, 8, 9, 10]
+        instructions = ["rra", "pb", "ss", "ra", "sb", "sa", "rr", "rrb", "rrr", "pa", "rb"]
 
-
-    # get_user_instructions - invalid instructions
-    # get_user_instructions - valid multiple instructions
-    # get_user_instructions - invalid multiple instructions
+        result_a, result_b = checker.execute_instructions(lst_a, lst_b, instructions)
+        self.assertEqual([10, 3, 1, 4, 2], result_a, "execute_instructions - instructions executed incorrectly on list_a")
+        self.assertEqual([6, 7, 8, 9, 5], result_b, "execute_instructions - instructions executed incorrectly on list_b")
 
 
     def test_list_sorted(self):
@@ -153,5 +153,3 @@ class TestChecker(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-# TODO - test all checker functions
