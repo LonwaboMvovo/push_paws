@@ -100,5 +100,11 @@ class TestChecker(unittest.TestCase):
         self.assertTrue(result)
 
 
+    def test_list_not_sorted(self):
+        unsorted_list = [-1, 2, 1, -2, 0]
+        result = checker.list_sorted(unsorted_list)
+        self.assertFalse(result)
+
+
 if __name__ == "__main__":
     unittest.main()
