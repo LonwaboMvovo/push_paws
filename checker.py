@@ -1,9 +1,19 @@
-from typing import List, Tuple
+from typing import List, Tuple, Union
 import operations as ops
 
 
-def get_user_ints () -> List[int]:
-    return [int(num) for num in input("List of ints: ").split()]
+def get_user_ints () -> Union[List[int], str]:
+    user_input = input("List of ints: ")
+
+    try:
+        response = [int(num) for num in user_input.strip().split()]
+
+        if len(response) != len(set(response)):
+            return "duplicate input: " + user_input
+
+        return response
+    except ValueError as e:
+        return "invalid input: " + user_input
 
 
 def get_user_instructions() -> List[str]:
@@ -66,3 +76,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# TODO - error handling for 'get_user_ints' & 'get_user_instructions'
+# TODO - docstrings

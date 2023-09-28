@@ -1,4 +1,6 @@
 import unittest
+from unittest.mock import patch
+from io import StringIO
 import operations
 import checker
 
@@ -94,6 +96,37 @@ class TestOperations(unittest.TestCase):
 
 
 class TestChecker(unittest.TestCase):
+    @patch('builtins.input', side_effect=['3 2 1 0'])
+    def test_get_user_ints_valid_input(self, mock_input):
+        result = checker.get_user_ints()
+        self.assertEqual([3, 2, 1, 0], result, "get_user_ints - should create a list of the user integer arguments")
+
+
+    @patch('builtins.input', side_effect=['3 two 1 LMAO'])
+    def test_get_user_ints_invalid_input(self, mock_input):
+        result = checker.get_user_ints()
+        self.assertEqual("invalid input: 3 two 1 LMAO", result, "get_user_ints - should return error message for invalid user input")
+
+
+    @patch('builtins.input', side_effect=['9 0 2 1 0'])
+    def test_get_user_ints_duplicate_input(self, mock_input):
+        result = checker.get_user_ints()
+        self.assertEqual("duplicate input: 9 0 2 1 0", result, "get_user_ints - should return error message for user input with duplicates")  
+
+
+    # get_user_instructions - valid instructions
+    # get_user_instructions - invalid instructions
+
+
+    # execute_instructions - valid execution for each instruction: sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
+    # execute_instructions - valid execution for multiple instructions    
+
+
+    # get_user_instructions - invalid instructions
+    # get_user_instructions - valid multiple instructions
+    # get_user_instructions - invalid multiple instructions
+
+
     def test_list_sorted(self):
         sorted_list = [-2, -1, 0, 1, 2]
         result = checker.list_sorted(sorted_list)
@@ -106,5 +139,11 @@ class TestChecker(unittest.TestCase):
         self.assertFalse(result)
 
 
+    # survey_says - ok
+    # survey_says - ko
+
+
 if __name__ == "__main__":
     unittest.main()
+
+# TODO - test all checker functions
