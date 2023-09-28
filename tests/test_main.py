@@ -94,7 +94,7 @@ class TestOperations(unittest.TestCase):
 
 
 class TestChecker(unittest.TestCase):
-    def test_is_sorted(self):
+    def test_list_sorted(self):
         sorted_list = [-2, -1, 0, 1, 2]
         result = checker.list_sorted(sorted_list)
         self.assertTrue(result)

@@ -2,15 +2,15 @@ from typing import List, Tuple
 import operations as ops
 
 
-def get_ints_from_user () -> List[int]:
-    return input("List of ints: ").split()
+def get_user_ints () -> List[int]:
+    return [int(num) for num in input("List of ints: ").split()]
 
 
-def get_instructions_from_user() -> List[int]:
+def get_user_instructions() -> List[str]:
     return input("Instructions: ").lower().split()
 
 
-def execute_instructions(lst_a: List[int], lst_b: List[int], instructions: List[int]) -> Tuple[List[int], List[int]]:
+def execute_instructions(lst_a: List[int], lst_b: List[int], instructions: List[str]) -> Tuple[List[int], List[int]]:
     for instruction in instructions:
         if instruction == "sa":
             lst_a = ops.swap_first_two_elements(lst_a)
@@ -42,20 +42,26 @@ def list_sorted(input_list: List[int]) -> bool:
     return input_list == sorted(input_list)
 
 
+def survey_says(lst_a, lst_b):
+    response = "OK"
+
+    if not list_sorted(lst_a) or lst_b:
+        response = "KO"
+
+    return response
+
+
 def main():
     print("\nChecker Program\n")
 
-    lst_a = [int(num) for num in get_ints_from_user()]
+    lst_a = get_user_ints()
     lst_b = []
 
-    instructions = get_instructions_from_user()
+    instructions = get_user_instructions()
 
     lst_a, lst_b = execute_instructions(lst_a, lst_b, instructions)
 
-    if list_sorted(lst_a) and not lst_b:
-        print("OK")
-    else:
-        print("KO")
+    print(survey_says(lst_a, lst_b))
     
 
 if __name__ == "__main__":
