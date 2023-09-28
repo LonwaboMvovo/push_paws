@@ -96,26 +96,34 @@ class TestOperations(unittest.TestCase):
 
 
 class TestChecker(unittest.TestCase):
-    @patch('builtins.input', side_effect=['3 2 1 0'])
+    @patch("builtins.input", side_effect=["3 2 1 0"])
     def test_get_user_ints_valid_input(self, mock_input):
         result = checker.get_user_ints()
-        self.assertEqual([3, 2, 1, 0], result, "get_user_ints - should create a list of the user integer arguments")
+        self.assertEqual([3, 2, 1, 0], result, "get_user_ints - should return an integer list of the user arguments")
 
 
-    @patch('builtins.input', side_effect=['3 two 1 LMAO'])
+    @patch("builtins.input", side_effect=["3 two 1 LMAO"])
     def test_get_user_ints_invalid_input(self, mock_input):
         result = checker.get_user_ints()
-        self.assertEqual("invalid input: 3 two 1 LMAO", result, "get_user_ints - should return error message for invalid user input")
+        self.assertEqual("ERROR: invalid input", result, "get_user_ints - should return an error message for invalid user input")
 
 
-    @patch('builtins.input', side_effect=['9 0 2 1 0'])
+    @patch("builtins.input", side_effect=["9 0 2 1 0"])
     def test_get_user_ints_duplicate_input(self, mock_input):
         result = checker.get_user_ints()
-        self.assertEqual("duplicate input: 9 0 2 1 0", result, "get_user_ints - should return error message for user input with duplicates")  
+        self.assertEqual("ERROR: duplicate input", result, "get_user_ints - should return an error message for user input with duplicates")  
 
 
-    # get_user_instructions - valid instructions
-    # get_user_instructions - invalid instructions
+    @patch("builtins.input", side_effect=["sa sb ss pa pb ra rb rr rra rrb rrr"])
+    def test_get_user_instructions_valid_input(self, mock_input):
+        result = checker.get_user_instructions()
+        self.assertEqual(["sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"], result, "get_user_instructions - should return a string list of the user instructions")
+
+
+    @patch("builtins.input", side_effect=["swap_a sb ss PhantomAssassin ra rrr"])
+    def test_get_user_instructions_invalid_input(self, mock_input):
+        result = checker.get_user_instructions()
+        self.assertEqual("ERROR: invalid instructions", result, "get_user_instructions - should return an error message for invalid user instructions")
 
 
     # execute_instructions - valid execution for each instruction: sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr

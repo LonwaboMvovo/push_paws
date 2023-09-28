@@ -3,21 +3,26 @@ import operations as ops
 
 
 def get_user_ints () -> Union[List[int], str]:
-    user_input = input("List of ints: ")
-
     try:
-        response = [int(num) for num in user_input.strip().split()]
+        response = [int(num) for num in input("List of ints: ").strip().split()]
 
         if len(response) != len(set(response)):
-            return "duplicate input: " + user_input
+            return "ERROR: duplicate input"
 
         return response
     except ValueError as e:
-        return "invalid input: " + user_input
+        return "ERROR: invalid input"
 
 
-def get_user_instructions() -> List[str]:
-    return input("Instructions: ").lower().split()
+def get_user_instructions() -> Union[List[str], str]:
+    valid_instructions = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"}
+
+    user_instructions = input("Instructions: ").strip().lower().split()
+    for user_inst in user_instructions:
+        if user_inst not in valid_instructions:
+            return "ERROR: invalid instructions"
+
+    return user_instructions
 
 
 def execute_instructions(lst_a: List[int], lst_b: List[int], instructions: List[str]) -> Tuple[List[int], List[int]]:
