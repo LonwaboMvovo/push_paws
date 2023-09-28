@@ -147,8 +147,25 @@ class TestChecker(unittest.TestCase):
         self.assertFalse(result)
 
 
-    # survey_says - ok
-    # survey_says - ko
+    def test_survey_says_ok(self):
+        lst_a = [1, 2, 3, 4, 5]
+        lst_b = []
+        result = checker.survey_says(lst_a, lst_b)
+        self.assertEqual("OK", result, "survery_says - should return 'OK' for sorted lst_a and empty lst_b")
+
+    
+    def test_survey_says_ko_unsorted_a(self):
+        lst_a = [-1, 2, 1, -2, 0]
+        lst_b = []
+        result = checker.survey_says(lst_a, lst_b)
+        self.assertEqual("KO", result, "survery_says - should return 'KO' for unsorted lst_a and empty lst_b")
+
+
+    def test_survey_says_ko_not_empty_b(self):
+        lst_a = [1, 2, 3, 4, 5]
+        lst_b = [69, 420]
+        result = checker.survey_says(lst_a, lst_b)
+        self.assertEqual("KO", result, "survery_says - should return 'KO' for sorted lst_a and not empty lst_b")
 
 
 if __name__ == "__main__":
