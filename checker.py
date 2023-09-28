@@ -116,9 +116,16 @@ def main():
     print("\nChecker Program\n")
 
     lst_a = get_user_ints()
+    if isinstance(lst_a, str):
+        print(lst_a)
+        return
+
     lst_b = []
 
     instructions = get_user_instructions()
+    if isinstance(instructions, str):
+        print(instructions)
+        return
 
     lst_a, lst_b = execute_instructions(lst_a, lst_b, instructions)
 
